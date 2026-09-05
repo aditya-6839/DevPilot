@@ -50,4 +50,16 @@ public class GlobalExceptionHandler {
                 "message", message,
                 "timestamp", Instant.now().toString()));
     }
+
+    @ExceptionHandler(InvalidOAuthUserException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidOAuthUser(
+            InvalidOAuthUserException ex
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of(
+                        "error", "oauth_user_invalid",
+                        "message", ex.getMessage()
+                ));
+    }
 }

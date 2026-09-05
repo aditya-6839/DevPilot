@@ -28,9 +28,6 @@ public class User {
     @Column(name = "github_id", unique = true, nullable = false, updatable = false)
     private Long githubId;
 
-    @Column(name = "email", length = 320, updatable = false, unique = true) // drop nullable=false unless confirmed
-    private String email;
-
     @Column(name = "github_username", nullable = false, length = 100)
     private String githubUsername;
 

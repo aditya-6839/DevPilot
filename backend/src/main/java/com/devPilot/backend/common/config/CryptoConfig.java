@@ -11,12 +11,12 @@ import org.springframework.security.crypto.encrypt.TextEncryptor;
 import java.nio.charset.StandardCharsets;
 
 @Configuration
-public class EncryptionConfig {
+public class CryptoConfig {
 
     @Bean
     public TextEncryptor tokenEncryptor(
-            @Value("${app.encryption.password}") String password ,
-            @Value("${app.encryption.salt}") String salt
+            @Value("${app.token-encryptor-password}") String password ,
+            @Value("${app.token-encryptor-salt}") String salt
     ) {
 
         BytesEncryptor encryptor = AesGcmBytesEncryptor
